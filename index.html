@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map of Three US Cities</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+</head>
+<body> 
+  <div id="map" style="height: 400px;"></div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <script>
+  // Create the map
+  // *I change the zoom from 4 to 3. This refers to the map creation code in Leaflet Library
+  const map = L.map('map').setView([37, -100], 3);
+
+  // Add tile layer
+  // *This tile layer inports data from open street map to make the US map and add it to the map, refers to a specific basemap
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+// *.addTo(map) refers to adding things to the cont map at the top of the scrip
+
+  // Add markers for cities
+  // *.bindPopup refers to the code to make a popup label for each city, found in Leaflet
+  L.marker([37.8, -122.4]).addTo(map)
+    .bindPopup('San Francisco')
+    .openPopup();
+
+  L.marker([40.7, -74]).addTo(map)
+    .bindPopup('New York City')
+    .openPopup();
+
+  L.marker([29.7, -95.4]).addTo(map)
+    .bindPopup('Houston')
+    .openPopup();
+
+
+  </script>
+
+</body>
+</html>
